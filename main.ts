@@ -1,6 +1,7 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (player2, projectile) {
     player2.startEffect(effects.warmRadial, 500)
     player2.sayText("Ouch!",500)
+    info.changeLifeBy(-1)
 })
 let lemon = sprites.create(img`
     5 5 5 5 . . . . . . . . . . . . 
@@ -85,5 +86,6 @@ let coin = sprites.create(img`
 coin.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (player2, food) {
     coin.setPosition(Math.randomRange(0, 160), Math.randomRange(0, 120))
-    
+    info.changeScoreBy(1)
 })
+info.setLife(10000)
